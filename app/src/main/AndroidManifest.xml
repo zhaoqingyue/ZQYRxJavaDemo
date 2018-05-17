@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.zqy.rxjavademo">
+
+    <application
+        android:name=".app.RxJavaApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/BaseTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RxBindingActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+        <activity
+            android:name=".RxJavaActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+        <activity
+            android:name=".RxBusActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+        <activity
+            android:name=".rxbinding.ButtonActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+        <activity
+            android:name=".rxbinding.SeekBarActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+        <activity
+            android:name=".rxbinding.EditTextActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+        <activity
+            android:name=".rxbinding.LoginActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+        <activity
+            android:name=".rxbinding.VerifyCodeActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+        <activity
+            android:name=".rxbinding.ListActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+    </application>
+
+</manifest>

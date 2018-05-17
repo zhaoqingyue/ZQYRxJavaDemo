@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zqy.rxjavademo.MainActivity"
+    android:background="@color/colorWindows">
+
+    <include
+        android:id="@+id/top"
+        layout="@layout/layout_top"/>
+
+    <Button
+        android:id="@+id/btn_rxjava"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@+id/top"
+        android:textAllCaps="false"
+        android:text="RxJava"/>
+
+    <Button
+        android:id="@+id/btn_rxandroid"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@+id/btn_rxjava"
+        android:textAllCaps="false"
+        android:text="RxAndroid"/>
+
+    <Button
+        android:id="@+id/btn_rxbinding"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@+id/btn_rxandroid"
+        android:textAllCaps="false"
+        android:text="RxBinding"/>
+    
+    <Button
+        android:id="@+id/btn_rxbus"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@+id/btn_rxbinding"
+        android:textAllCaps="false"
+        android:text="RxBus"/>
+
+
+</RelativeLayout>
