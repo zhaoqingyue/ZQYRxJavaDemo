@@ -52,8 +52,8 @@ public class IntervalActivity extends BaseActivity {
                     @Override
                     public void call(Long aLong) {
                         //每隔1秒发送数据项，从0开始计数
-                        //0,1,2,3....
-                        tv1.setText(tv1.getText().toString() + "\n" + aLong);
+                        //0, 1, 2, 3....
+                        tv1.setText(aLong.toString());
                     }
                 });
 

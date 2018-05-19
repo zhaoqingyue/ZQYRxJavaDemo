@@ -1,15 +1,17 @@
 package com.zqy.rxjavademo.rxjava.operator.map;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.zqy.rxjavademo.R;
 import com.zqy.rxjavademo.base.BaseActivity;
 
-import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
 
@@ -19,6 +21,8 @@ public class FlatMapActivity extends BaseActivity {
     TextView tv0;
     @BindView(R.id.tv1)
     TextView tv1;
+    @BindView(R.id.iv)
+    ImageView iv;
 
     @Override
     protected int getLayoutResID() {
@@ -32,26 +36,34 @@ public class FlatMapActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        tv0.setText("switchMap：将Observable发射的数据变换为Observables集合");
+        iv.setImageResource(R.mipmap.flatmap);
+        tv0.setText("flatMap： 将Observable发射的数据变换为Observables集合");
         /**
-         * switchMap： 和flatMap很像，将Observable发射的数据变换为Observables集合，
-         * 当原始Observable发射一个新的数据（Observable）时，它将取消订阅前一个Observable
+         * flatMap： 将Observable发射的数据变换为Observables集合，
+         * 然后将这些Observable发射的数据平坦化的放进一个单独的Observable，
+         * 内部采用merge合并
          */
-        Observable.just(2, 3, 5)
-                .flatMapIterable(new Func1<Integer, Iterable<String>>() {
+        Observable.just(10, 20, 30)
+                .flatMap(new Func1<Integer, Observable<Integer>>() {
 
                     @Override
-                    public Iterable<String> call(Integer integer) {
-                        return Arrays.asList(integer*10 + "", integer*100 + "");
+                    public Observable<Integer> call(Integer integer) {
+                        //10的延迟执行时间为200毫秒、20和30的延迟执行时间为180毫秒
+                        int delay = 200;
+                        if (integer > 10)
+                            delay = 180;
+
+                        return Observable.from(new Integer[]{
+                                integer, integer / 2}
+                        ).delay(delay, TimeUnit.MILLISECONDS);
                     }
-                })
-                .subscribe(new Action1<String>() {
+        }).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<Integer>() {
 
                     @Override
-                    public void call(String s) {
-                        //20,200,30,300,50,500
-                        LogUtils.d("ZQY", s);
-                        tv1.setText(tv1.getText().toString() + "\n" + s);
+                    public void call(Integer integer) {
+                        LogUtils.d("ZQY", integer);
+                        tv1.setText(tv1.getText().toString() + "\n" + integer);
                     }
                 });
     }

@@ -1,5 +1,6 @@
 package com.zqy.rxjavademo.rxjava.operator.map;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.LogUtils;
@@ -16,6 +17,8 @@ public class WindowActivity extends BaseActivity {
     TextView tv0;
     @BindView(R.id.tv1)
     TextView tv1;
+    @BindView(R.id.iv)
+    ImageView iv;
 
     @Override
     protected int getLayoutResID() {
@@ -29,6 +32,7 @@ public class WindowActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        iv.setImageResource(R.mipmap.window);
         tv0.setText("window： 定期将来自Observable的数据分拆成一些Observable窗口，然后发射这些窗口，而不是每次发射一项。");
         /**
          * window： 定期将来自Observable的数据分拆成一些Observable窗口，然后发射这些窗口，而不是每次发射一项。

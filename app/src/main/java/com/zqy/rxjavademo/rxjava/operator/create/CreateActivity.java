@@ -28,18 +28,18 @@ public class CreateActivity extends BaseActivity {
     @Override
     protected void initData() {
         /**
-         * create： 使用OnSubscribe创建一个Observable，这种方法比较简单。
-         * 需要注意的是，使用该方法创建时，建议在OnSubscribe#call方法中检查订阅状态，以便及时停止发射数据或者运算。
+         * create： 使用OnSubscribe创建一个Observable
+         * 注意: 使用该方法创建时，建议在OnSubscribe#call方法中检查订阅状态，以便及时停止发射数据或者运算。
          */
         Observable.create(new Observable.OnSubscribe<String>() {
 
             @Override
             public void call(Subscriber<? super String> subscriber) {
                 if (!subscriber.isUnsubscribed()) {
-                    subscriber.onNext("使用OnSubscribe创建一个Observable\n");
-                    subscriber.onNext("注意: \n");
-                    subscriber.onNext("使用该方法创建时，建议在OnSubscribe#call方法中检查订阅状态\n");
-                    subscriber.onNext("检查订阅状态: subscriber.isUnsubscribed()\n");
+                    subscriber.onNext("create： 使用OnSubscribe创建一个Observable");
+//                    subscriber.onNext("注意: \n");
+//                    subscriber.onNext("使用该方法创建时，建议在OnSubscribe#call方法中检查订阅状态\n");
+//                    subscriber.onNext("检查订阅状态: subscriber.isUnsubscribed()\n");
                     subscriber.onCompleted();
                 }
             }
@@ -58,7 +58,7 @@ public class CreateActivity extends BaseActivity {
             @Override
             public void onNext(String s) {
                 LogUtils.dTag("ZQY", "onNext: " + s);
-                tv.setText(tv.getText().toString() + s);
+                tv.setText(s);
             }
         });
     }

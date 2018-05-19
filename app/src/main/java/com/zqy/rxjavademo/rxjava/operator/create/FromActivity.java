@@ -54,8 +54,8 @@ public class FromActivity extends BaseActivity {
 
         // Iterable
         List<String> list = new ArrayList<>();
-        list.add("1. Iterable转换为Observable\n");
-        list.add("----通过OnSubscribeFromIterable转换");
+        list.add("1. Iterable转换为Observable");
+//        list.add("\n----通过OnSubscribeFromIterable转换");
 
 //        Observable fromObservable = Observable.from(list);
 //        Subscription subfrom = fromObservable.subscribeOn(AndroidSchedulers.mainThread())
@@ -84,7 +84,9 @@ public class FromActivity extends BaseActivity {
             @Override
             public String call() throws Exception {
                 Thread.sleep(1000);
-                return "2. Future转换为Observable\n" + "----通过OnSubscribeToObservableFuture转换";
+                return "2. Future转换为Observable"
+//                        + "\n----通过OnSubscribeToObservableFuture转换"
+                        ;
             }
         });
 
@@ -110,7 +112,9 @@ public class FromActivity extends BaseActivity {
         });
 
         // 数组
-        String[] items = { "3. 数组转换为Observable\n", "----通过OnSubscribeFromArray转换" };
+        String[] items = { "3. 数组转换为Observable"
+//                , "\n----通过OnSubscribeFromArray转换"
+        };
 
 //        Observable arrayObservable = Observable.from(items);
 //        Subscription subArray = arrayObservable.subscribeOn(AndroidSchedulers.mainThread())

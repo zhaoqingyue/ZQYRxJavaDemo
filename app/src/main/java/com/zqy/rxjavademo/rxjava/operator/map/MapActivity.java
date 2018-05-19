@@ -1,5 +1,6 @@
 package com.zqy.rxjavademo.rxjava.operator.map;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.LogUtils;
@@ -17,6 +18,8 @@ public class MapActivity extends BaseActivity {
     TextView tv0;
     @BindView(R.id.tv1)
     TextView tv1;
+    @BindView(R.id.iv)
+    ImageView iv;
 
     @Override
     protected int getLayoutResID() {
@@ -30,6 +33,7 @@ public class MapActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        iv.setImageResource(R.mipmap.map);
         tv0.setText("map：对Observable发射的每一项数据都应用一个函数来变换");
         /**
          * map：对Observable发射的每一项数据都应用一个函数来变换

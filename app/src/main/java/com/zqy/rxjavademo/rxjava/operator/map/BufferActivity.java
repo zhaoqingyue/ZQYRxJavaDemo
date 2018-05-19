@@ -1,5 +1,6 @@
 package com.zqy.rxjavademo.rxjava.operator.map;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.LogUtils;
@@ -18,6 +19,8 @@ public class BufferActivity extends BaseActivity {
     TextView tv0;
     @BindView(R.id.tv1)
     TextView tv1;
+    @BindView(R.id.iv)
+    ImageView iv;
 
     @Override
     protected int getLayoutResID() {
@@ -31,6 +34,7 @@ public class BufferActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        iv.setImageResource(R.mipmap.buffer);
         tv0.setText("buffer： 定期从Observable收集数据到一个集合，然后把这些数据集合打包发射，而不是一次发射一个");
         /**
          * buffer： 定期从Observable收集数据到一个集合，然后把这些数据集合打包发射，而不是一次发射一个

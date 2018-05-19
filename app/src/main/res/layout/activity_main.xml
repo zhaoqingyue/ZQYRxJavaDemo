@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.zqy.rxjavademo.MainActivity"
+    android:orientation="vertical"
     android:background="@color/colorWindows">
 
     <include
@@ -16,7 +17,6 @@
         android:id="@+id/btn_rxjava"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_below="@+id/top"
         android:textAllCaps="false"
         android:text="RxJava"/>
 
@@ -24,7 +24,6 @@
         android:id="@+id/btn_rxandroid"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_below="@+id/btn_rxjava"
         android:textAllCaps="false"
         android:text="RxAndroid"/>
 
@@ -32,7 +31,6 @@
         android:id="@+id/btn_rxbinding"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_below="@+id/btn_rxandroid"
         android:textAllCaps="false"
         android:text="RxBinding"/>
     
@@ -40,9 +38,15 @@
         android:id="@+id/btn_rxbus"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_below="@+id/btn_rxbinding"
         android:textAllCaps="false"
         android:text="RxBus"/>
 
+    <Button
+        android:id="@+id/btn_rxpermissions"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textAllCaps="false"
+        android:text="RxPermissions"/>
 
-</RelativeLayout>
+
+</LinearLayout>

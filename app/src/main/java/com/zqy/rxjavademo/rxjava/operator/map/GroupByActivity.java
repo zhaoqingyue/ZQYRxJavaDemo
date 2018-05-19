@@ -1,5 +1,6 @@
 package com.zqy.rxjavademo.rxjava.operator.map;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.LogUtils;
@@ -18,6 +19,8 @@ public class GroupByActivity extends BaseActivity {
     TextView tv0;
     @BindView(R.id.tv1)
     TextView tv1;
+    @BindView(R.id.iv)
+    ImageView iv;
 
     @Override
     protected int getLayoutResID() {
@@ -31,6 +34,7 @@ public class GroupByActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        iv.setImageResource(R.mipmap.groupby);
         tv0.setText("groupBy： 将Observable分拆为Observable集合，将原始Observable发射的数据按Key分组，" +
                 "每一个Observable发射一组不同的数据");
         /**
