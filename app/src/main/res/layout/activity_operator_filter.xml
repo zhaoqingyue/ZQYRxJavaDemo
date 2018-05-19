@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_operator_filter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zqy.rxjavademo.rxjava.operator.OperatorFilterActivity"
+    android:orientation="vertical"
+    android:background="@color/colorWindows">
+
+    <include
+        android:id="@+id/top"
+        layout="@layout/layout_top"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_filter"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="filter"/>
+
+            <Button
+                android:id="@+id/btn_ofType"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="ofType"/>
+
+            <Button
+                android:id="@+id/btn_take"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="take"/>
+
+            <Button
+                android:id="@+id/btn_takeLast"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="takeLast"/>
+
+            <Button
+                android:id="@+id/btn_takeFirst"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="takeFirst"/>
+
+            <Button
+                android:id="@+id/btn_first"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="first/firstOrDefault"/>
+
+            <Button
+                android:id="@+id/btn_last"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="last/lastOrDefault"/>
+
+            <Button
+                android:id="@+id/btn_skip"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="skip"/>
+
+            <Button
+                android:id="@+id/btn_skipLast"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="skipLast"/>
+
+            <Button
+                android:id="@+id/btn_elementAt"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="elementAt/elementAtOrDefault"/>
+
+            <Button
+                android:id="@+id/btn_distinct"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="distinct"/>
+
+            <Button
+                android:id="@+id/btn_distinctUntilChanged"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="distinctUntilChanged"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

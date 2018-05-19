@@ -27,6 +27,6 @@
         android:padding="10dp"
         android:layout_below="@+id/et"
         android:text=""
-        android:textSize="24sp"/>
+        android:textSize="20sp"/>
 
 </LinearLayout>

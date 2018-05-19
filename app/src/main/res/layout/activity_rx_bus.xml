@@ -14,9 +14,10 @@
         layout="@layout/layout_top"/>
 
     <TextView
+        android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="RxBus"
+        android:text=""
         android:gravity="center"/>
 
 </LinearLayout>

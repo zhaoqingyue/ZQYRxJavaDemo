@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_operator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zqy.rxjavademo.rxjava.operator.OperatorActivity"
+    android:orientation="vertical"
+    android:background="@color/colorWindows">
+
+    <include
+        android:id="@+id/top"
+        layout="@layout/layout_top"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_create_operator"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="创建操作符"/>
+
+            <Button
+                android:id="@+id/btn_merge_operator"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="合并操作"/>
+
+            <Button
+                android:id="@+id/btn_filter_operator"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="过滤操作"/>
+
+            <Button
+                android:id="@+id/btn_map_operator"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:textAllCaps="false"
+                android:text="变换操作"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

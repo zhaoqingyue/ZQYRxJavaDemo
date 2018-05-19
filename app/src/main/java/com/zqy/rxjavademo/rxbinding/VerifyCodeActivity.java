@@ -1,8 +1,8 @@
 package com.zqy.rxjavademo.rxbinding;
 
-import android.util.Log;
 import android.widget.Button;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jakewharton.rxbinding.widget.RxTextView;
 import com.zqy.rxjavademo.R;
@@ -65,7 +65,7 @@ public class VerifyCodeActivity extends BaseActivity {
 
                             @Override
                             public void onError(Throwable e) {
-                                Log.e("ZQY", e.toString());
+                                LogUtils.e("ZQY", e.toString());
                             }
 
                             @Override

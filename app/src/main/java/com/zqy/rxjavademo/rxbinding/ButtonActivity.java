@@ -1,5 +1,6 @@
 package com.zqy.rxjavademo.rxbinding;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -72,6 +73,7 @@ public class ButtonActivity extends BaseActivity {
 
                     @Override
                     public void call(Void aVoid) {
+                        tv1.setVisibility(View.VISIBLE);
                         RxTextView.text(tv1).call("----button clicked----");
                         LogUtils.dTag("ZQY", "----button clicked----");
                     }
@@ -88,6 +90,7 @@ public class ButtonActivity extends BaseActivity {
 
             @Override
             public void call(Void aVoid) {
+                tv2.setVisibility(View.VISIBLE);
                 RxTextView.text(tv2).call("Button监听" + "--第一次监听");
             }
         });
@@ -97,6 +100,7 @@ public class ButtonActivity extends BaseActivity {
 
             @Override
             public void call(Void aVoid) {
+                tv2.setVisibility(View.VISIBLE);
                 String text = tv2.getText().toString();
                 RxTextView.text(tv2).call(text + "\n" + "Button监听" + "--第二次监听");
             }
