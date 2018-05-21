@@ -46,20 +46,19 @@ public class MergeActivity extends BaseActivity {
         List<String> list1 = new ArrayList<>() ;
         List<String> list2 = new ArrayList<>() ;
 
-        list1.add( "observable1-1" ) ;
-        list1.add( "observable1-2" ) ;
-        list1.add( "observable1-3" ) ;
+        list1.add( "observable1-1" );
+        list1.add( "observable1-2" );
+        list1.add( "observable1-3" );
 
-        list2.add( "observable2-a" ) ;
-        list2.add( "observable2-b" ) ;
-        list2.add( "observable2-c" ) ;
+        list2.add( "observable2-a" );
+        list2.add( "observable2-b" );
+        list2.add( "observable2-c" );
 
-        Observable observable1 = Observable.from(list1) ;
-        Observable observable2 = Observable.from(list2) ;
+        Observable observable1 = Observable.from(list1);
+        Observable observable2 = Observable.from(list2);
 
         //合并数据  先发送observable2的全部数据，然后发送observable1的全部数据
-        Observable observable = Observable.merge(observable2, observable1) ;
-
+        Observable observable = Observable.merge(observable2, observable1);
         subscription = observable
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<String>() {
@@ -69,7 +68,7 @@ public class MergeActivity extends BaseActivity {
                         LogUtils.d("ZQY", s);
                         tv1.setText(tv1.getText().toString() + "\n" + s);
                     }
-                }) ;
+                });
     }
 
     @Override

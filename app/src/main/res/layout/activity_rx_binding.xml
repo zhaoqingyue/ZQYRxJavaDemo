@@ -28,6 +28,20 @@
         android:text="EditText"/>
 
     <Button
+        android:id="@+id/btn_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textAllCaps="false"
+        android:text="CheckBox"/>
+
+    <Button
+        android:id="@+id/btn_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textAllCaps="false"
+        android:text="RecyclerView"/>
+
+    <Button
         android:id="@+id/btn_seekbar"
         android:layout_width="match_parent"
         android:layout_height="55dp"

@@ -48,5 +48,11 @@
         android:textAllCaps="false"
         android:text="RxPermissions"/>
 
+    <Button
+        android:id="@+id/btn_rxlifecyle"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textAllCaps="false"
+        android:text="RxLifecyle"/>
 
 </LinearLayout>

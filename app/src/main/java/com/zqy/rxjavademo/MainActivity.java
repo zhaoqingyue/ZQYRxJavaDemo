@@ -29,7 +29,8 @@ public class MainActivity extends BaseActivity {
         return false;
     }
 
-    @OnClick({R.id.btn_rxjava, R.id.btn_rxandroid, R.id.btn_rxbinding, R.id.btn_rxbus})
+    @OnClick({R.id.btn_rxjava, R.id.btn_rxandroid, R.id.btn_rxbinding, R.id.btn_rxbus,
+            R.id.btn_rxpermissions, R.id.btn_rxlifecyle})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_rxjava: {
@@ -48,6 +49,16 @@ public class MainActivity extends BaseActivity {
             case R.id.btn_rxbus: {
                 Intent intent = new Intent(this, RxBusActivity.class);
                 startActivity(intent);
+                break;
+            }
+            case R.id.btn_rxpermissions: {
+//                Intent intent = new Intent(this, RxBusActivity.class);
+//                startActivity(intent);
+                break;
+            }
+            case R.id.btn_rxlifecyle: {
+//                Intent intent = new Intent(this, RxBusActivity.class);
+//                startActivity(intent);
                 break;
             }
         }
