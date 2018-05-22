@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_rx_lifecycle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zqy.rxjavademo.rxlifecycle.RxLifecycleActivity"
+    android:orientation="vertical"
+    android:background="@color/colorWindows">
+
+    <include
+        android:id="@+id/top"
+        layout="@layout/layout_top"/>
+
+    <TextView
+        android:id="@+id/text_oncreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/text_onstart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/text_onresume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/text_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text=""/>
+
+</LinearLayout>

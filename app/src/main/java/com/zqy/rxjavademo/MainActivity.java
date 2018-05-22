@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.zqy.rxjavademo.base.BaseActivity;
+import com.zqy.rxjavademo.rxlifecycle.RxLifecycleActivity;
 
 import butterknife.OnClick;
 
@@ -57,8 +58,8 @@ public class MainActivity extends BaseActivity {
                 break;
             }
             case R.id.btn_rxlifecyle: {
-//                Intent intent = new Intent(this, RxBusActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(this, RxLifecycleActivity.class);
+                startActivity(intent);
                 break;
             }
         }

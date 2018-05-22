@@ -2,10 +2,10 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_list"
+    android:id="@+id/activity_recycler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zqy.rxjavademo.rxbinding.ListActivity"
+    tools:context="com.zqy.rxjavademo.rxbinding.RecyclerActivity"
     android:orientation="vertical"
     android:background="@color/colorWindows">
 
@@ -13,9 +13,10 @@
         android:id="@+id/top"
         layout="@layout/layout_top"/>
 
-    <ListView
-        android:id="@+id/listview"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"/>
 
 </LinearLayout>

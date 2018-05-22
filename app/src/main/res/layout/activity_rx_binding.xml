@@ -35,7 +35,14 @@
         android:text="CheckBox"/>
 
     <Button
-        android:id="@+id/btn_recyclerview"
+        android:id="@+id/btn_list"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textAllCaps="false"
+        android:text="ListView"/>
+
+    <Button
+        android:id="@+id/btn_recycler"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:textAllCaps="false"
@@ -49,11 +56,11 @@
         android:text="SeekBar"/>
 
     <Button
-        android:id="@+id/btn_list"
+        android:id="@+id/btn_debounce"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:textAllCaps="false"
-        android:text="List"/>
+        android:text="防抖动"/>
 
     <Button
         android:id="@+id/btn_verifycode"

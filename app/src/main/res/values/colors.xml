@@ -10,4 +10,7 @@
     <color name="colorTitle">#222222</color>
     <color name="colorLine">#D7D7D7</color>
 
+    <color name="colorDisable">#A7A7A7</color>
+    <color name="colorEnable">#009C52</color>
+
 </resources>

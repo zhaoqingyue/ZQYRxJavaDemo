@@ -1,5 +1,6 @@
 package com.zqy.rxjavademo.rxbinding;
 
+import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.jakewharton.rxbinding.widget.RxCompoundButton;
@@ -13,6 +14,8 @@ public class CheckBoxActivity extends BaseActivity {
 
     @BindView(R.id.checkbox)
     CheckBox checkBox;
+    @BindView(R.id.button)
+    Button button;
 
     @Override
     protected int getLayoutResID() {
@@ -31,8 +34,8 @@ public class CheckBoxActivity extends BaseActivity {
 
                     @Override
                     public void call(Boolean aBoolean) {
-//                        btn_login.setClickable(aBoolean);
-//                        btn_login.setBackgroundResource(aBoolean ? R.color.can_login : R.color.not_login);
+                        button.setClickable(aBoolean);
+                        button.setBackgroundResource(aBoolean ? R.color.colorEnable : R.color.colorDisable);
                     }
                 });
     }

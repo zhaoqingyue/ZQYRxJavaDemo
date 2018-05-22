@@ -41,7 +41,15 @@
             android:theme="@style/BaseTheme">
         </activity>
         <activity
+            android:name=".rxbinding.CheckBoxActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+        <activity
             android:name=".rxbinding.LoginActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+        <activity
+            android:name=".rxbinding.DebounceActivity"
             android:theme="@style/BaseTheme">
         </activity>
         <activity
@@ -50,6 +58,10 @@
         </activity>
         <activity
             android:name=".rxbinding.ListActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+        <activity
+            android:name=".rxbinding.RecyclerActivity"
             android:theme="@style/BaseTheme">
         </activity>
         <activity
@@ -200,7 +212,10 @@
             android:name=".rxjava.operator.map.WindowActivity"
             android:theme="@style/BaseTheme">
         </activity>
-        <activity android:name=".rxbinding.CheckBoxActivity">
+
+        <activity
+            android:name=".rxlifecycle.RxLifecycleActivity"
+            android:theme="@style/BaseTheme">
         </activity>
     </application>
 

@@ -53,14 +53,26 @@ public class ButtonActivity extends BaseActivity {
         mSubscription = new CompositeSubscription();
 
         // Button的OnClickListener点击事件
-        Subscription buttonSub = RxView.clicks(btn0).subscribe(new Action1<Void>() {
+        Subscription buttonSub = RxView.clicks(btn0)
+                .subscribe(new Action1<Void>() {
 
             @Override
             public void call(Void aVoid) {
-                Toast.makeText(ButtonActivity.this, "Button点击事件", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ButtonActivity.this, "click Button ！！", Toast.LENGTH_SHORT).show();
             }
         });
         mSubscription.add(buttonSub);
+
+        // Button的OnLongClickListener长按点击事件
+        Subscription longButtonSub = RxView.longClicks(btn0)
+                .subscribe(new Action1<Void>() {
+
+                    @Override
+                    public void call(Void aVoid) {
+                        Toast.makeText(ButtonActivity.this, "long click Button ！！", Toast.LENGTH_SHORT).show();
+                    }
+                }) ;
+        mSubscription.add(longButtonSub);
 
         // 防止多次点击
         /**
@@ -81,9 +93,9 @@ public class ButtonActivity extends BaseActivity {
 
         // Button多次监听
         /**
-         * Android是不能多次监听同一个点击事件。
-         * 但利用RxJava的操作符，例如publish, share或replay可以实现。
-         * 而RxBinding恰好支持对点击事件的多次监听。
+         * Android是不能多次监听同一个点击事件
+         * 但利用RxJava的操作符，例如publish, share或replay可以实现
+         * 而RxBinding恰好支持对点击事件的多次监听
          */
         Observable<Void> observable= RxView.clicks(btn2).share();
         Subscription sub1 = observable.subscribe(new Action1<Void>() {
