@@ -34,7 +34,7 @@ public class RxLifecycleActivity extends RxBaseActivity {
 
     @Override
     protected String getTitleName() {
-        return "RxLifecycleA";
+        return "RxLifecycle";
     }
 
     @Override
