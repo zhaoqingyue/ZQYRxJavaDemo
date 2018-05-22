@@ -41,7 +41,7 @@ public class RxLifecycleActivity extends RxBaseActivity {
     protected void initData() {
         textDes.setText("1. 手动设置取消订阅的生命周期" +
                 "\n.compose(this.<Long>bindUntilEvent(ActivityEvent.PAUSE))" +
-                "\n2. 手动绑定，自动取消" +
+                "\n\n2. 手动绑定，自动取消" +
                 "\n.compose(this.<Long>bindToLifecycle())" +
                 "\n\n注意：compose一定要在subscribe前面执行");
 
