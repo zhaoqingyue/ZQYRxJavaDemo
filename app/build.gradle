@@ -56,7 +56,7 @@ dependencies {
     compile 'com.trello:rxlifecycle-components:0.3.1'
 
     // RxPermissions
-    //compile 'com.github.akarnokd:rxjava2-interop:0.8.0'
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.3@aar'
 
 
 }

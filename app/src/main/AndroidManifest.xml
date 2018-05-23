@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.zqy.rxjavademo">
 
+    <!-- 相机 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- 录音 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
     <application
         android:name=".app.RxJavaApp"
         android:allowBackup="true"
@@ -212,9 +217,12 @@
             android:name=".rxjava.operator.map.WindowActivity"
             android:theme="@style/BaseTheme">
         </activity>
-
         <activity
             android:name=".rxlifecycle.RxLifecycleActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+        <activity
+            android:name=".rxpermissions.RxPermissionsActivity"
             android:theme="@style/BaseTheme">
         </activity>
     </application>

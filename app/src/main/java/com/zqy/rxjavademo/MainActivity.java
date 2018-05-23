@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.zqy.rxjavademo.base.BaseActivity;
 import com.zqy.rxjavademo.rxlifecycle.RxLifecycleActivity;
+import com.zqy.rxjavademo.rxpermissions.RxPermissionsActivity;
 
 import butterknife.OnClick;
 
@@ -53,8 +54,8 @@ public class MainActivity extends BaseActivity {
                 break;
             }
             case R.id.btn_rxpermissions: {
-//                Intent intent = new Intent(this, RxBusActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(this, RxPermissionsActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.btn_rxlifecyle: {

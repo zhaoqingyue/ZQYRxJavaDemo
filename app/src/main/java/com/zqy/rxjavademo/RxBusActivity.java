@@ -31,7 +31,7 @@ public class RxBusActivity extends BaseActivity {
     @Override
     protected void initData() {
         //创建被观察者
-        ob = RxBus.get().register( tag , String.class ) ;
+        ob = RxBus.get().register(tag, String.class) ;
         //订阅观察事件
         ob.observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<String>() {
@@ -44,13 +44,14 @@ public class RxBusActivity extends BaseActivity {
                 }) ;
 
         //发送内容
-        RxBus.get().post(  tag , "我是通过RxBus发送过来的消息" );
+        RxBus.get().post(tag , "我是通过RxBus发送过来的消息" +
+                "\n\nRxBus并不是一个库，而是一种模式");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         //取消订阅
-        RxBus.get().unregister( tag , ob );
+        RxBus.get().unregister(tag , ob);
     }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_rx_permissions"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zqy.rxjavademo.rxpermissions.RxPermissionsActivity"
+    android:orientation="vertical"
+    android:background="@color/colorWindows">
+
+    <include
+        android:id="@+id/top"
+        layout="@layout/layout_top"/>
+
+    <Button
+        android:id="@+id/btn_request"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textAllCaps="false"
+        android:text="request"/>
+
+    <Button
+        android:id="@+id/btn_requestEach"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textAllCaps="false"
+        android:text="requestEach"/>
+
+    <Button
+        android:id="@+id/btn_ensure"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textAllCaps="false"
+        android:text="ensure"/>
+
+    <Button
+        android:id="@+id/btn_ensureEach"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:textAllCaps="false"
+        android:text="ensureEach"/>
+
+</LinearLayout>
