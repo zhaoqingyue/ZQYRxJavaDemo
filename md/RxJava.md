@@ -29,6 +29,8 @@ compile 'io.reactivex:rxandroid:1.0.1'
 
 **基本实现**
 
+![image](https://github.com/zhaoqingyue/ZQYRxJavaDemo/blob/master/img/1.jpg)
+
 基本对象：
 - Observable（被观察者）
 - Observer（观察者）
