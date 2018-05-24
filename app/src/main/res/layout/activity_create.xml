@@ -14,13 +14,19 @@
         layout="@layout/layout_top"/>
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="----使用一个函数从头创建一个Observable"
+        android:lineSpacingExtra="5dp"/>
+
+    <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:text=""
-        android:lineSpacingExtra="5dp"
-        android:textSize="20sp"/>
+        android:lineSpacingExtra="5dp"/>
 
     <ImageView
         android:layout_width="match_parent"

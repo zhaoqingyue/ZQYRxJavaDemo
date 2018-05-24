@@ -2,21 +2,18 @@ package com.zqy.rxjavademo.rxjava.operator.merge;
 
 import android.widget.TextView;
 
-import com.blankj.utilcode.util.LogUtils;
+import com.trello.rxlifecycle.ActivityEvent;
 import com.zqy.rxjavademo.R;
-import com.zqy.rxjavademo.base.BaseActivity;
+import com.zqy.rxjavademo.base.RxBaseActivity;
 
 import butterknife.BindView;
 import rx.Observable;
-import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func2;
 
-public class ZipActivity extends BaseActivity {
-    private Subscription subscription;
+public class ZipActivity extends RxBaseActivity {
 
-    @BindView(R.id.tv0)
-    TextView tv0;
     @BindView(R.id.tv1)
     TextView tv1;
 
@@ -32,7 +29,6 @@ public class ZipActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        tv0.setText("zip： 使用一个函数组合多个Observable发射的数据集合，然后再发射这个结果");
         /**
          * zip： 使用一个函数组合多个Observable发射的数据集合，然后再发射这个结果
          * 如果多个Observable发射的数据量不一样，则以最少的Observable为标准进行压合
@@ -57,11 +53,12 @@ public class ZipActivity extends BaseActivity {
             }
         });
 
-        subscription = observable.subscribe(new Action1<String>() {
+        observable.compose(this.<String>bindUntilEvent(ActivityEvent.PAUSE))
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<String>() {
 
             @Override
             public void call(String s) {
-                LogUtils.d("ZQY", s);
                 tv1.setText(tv1.getText().toString() + "\n" + s);
             }
         });
@@ -70,7 +67,5 @@ public class ZipActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (subscription != null)
-            subscription.unsubscribe();
     }
 }

@@ -11,8 +11,8 @@ import com.zqy.rxjavademo.rxjava.operator.create.FromActivity;
 import com.zqy.rxjavademo.rxjava.operator.create.IntervalActivity;
 import com.zqy.rxjavademo.rxjava.operator.create.JustActivity;
 import com.zqy.rxjavademo.rxjava.operator.create.RangeActivity;
+import com.zqy.rxjavademo.rxjava.operator.create.RepeatActivity;
 import com.zqy.rxjavademo.rxjava.operator.create.TimerActivity;
-import com.zqy.rxjavademo.rxjava.operator.merge.MergeActivity;
 
 import butterknife.OnClick;
 
@@ -34,7 +34,7 @@ public class OperatorCreateActivity extends BaseActivity {
     }
 
     @OnClick({R.id.btn_create, R.id.btn_just, R.id.btn_from, R.id.btn_timer,
-            R.id.btn_interval, R.id.btn_range, R.id.btn_defer})
+            R.id.btn_interval, R.id.btn_range, R.id.btn_defer, R.id.btn_repeat})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_create: {
@@ -72,8 +72,8 @@ public class OperatorCreateActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             }
-            case R.id.btn_merge: {
-                Intent intent = new Intent(this, MergeActivity.class);
+            case R.id.btn_repeat: {
+                Intent intent = new Intent(this, RepeatActivity.class);
                 startActivity(intent);
                 break;
             }

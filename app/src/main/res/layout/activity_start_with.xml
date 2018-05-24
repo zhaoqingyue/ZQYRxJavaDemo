@@ -18,9 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:text=""
-        android:lineSpacingExtra="5dp"
-        android:textSize="20sp"/>
+        android:text="在数据序列的开头增加一项数据"
+        android:lineSpacingExtra="5dp"/>
 
     <TextView
         android:id="@+id/tv1"
@@ -28,9 +27,6 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:text=""
-        android:lineSpacingExtra="5dp"
-        android:textSize="20sp"/>
-
-
+        android:lineSpacingExtra="5dp"/>
 
 </LinearLayout>

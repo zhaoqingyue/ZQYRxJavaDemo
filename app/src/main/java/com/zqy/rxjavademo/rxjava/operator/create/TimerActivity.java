@@ -1,10 +1,12 @@
 package com.zqy.rxjavademo.rxjava.operator.create;
 
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.blankj.utilcode.util.LogUtils;
+import com.trello.rxlifecycle.ActivityEvent;
 import com.zqy.rxjavademo.R;
-import com.zqy.rxjavademo.base.BaseActivity;
+import com.zqy.rxjavademo.base.RxBaseActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,10 +15,8 @@ import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
-public class TimerActivity extends BaseActivity {
+public class TimerActivity extends RxBaseActivity {
 
-    @BindView(R.id.tv0)
-    TextView tv0;
     @BindView(R.id.tv1)
     TextView tv1;
     int delay = 3;
@@ -33,22 +33,23 @@ public class TimerActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        tv1.setText("正在" + delay + "秒倒计时...");
         /**
          * timer： 创建一个Observable，它在一个给定的延迟时间后发射一个特殊的值--0
          * 等同于Android中Handler的postDelay( )方法
          * 内部通过OnSubscribeTimerOnce工作
          */
-        tv0.setText("我的初始值为：" + delay);
-        tv1.setText(delay + "秒之后，我的值为：");
         Observable.timer(delay, TimeUnit.SECONDS)
-                .observeOn(AndroidSchedulers.mainThread() )
+                .compose(this.<Long>bindUntilEvent(ActivityEvent.PAUSE))
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<Long>() {
 
                     @Override
                     public void call(Long aLong) {
-                        LogUtils.dTag("ZQY", "call: " + aLong);
-                        tv1.setText(delay + "秒之后，我的值为：" + aLong);
+                        Toast.makeText(getApplicationContext(),
+                                 "倒计时结束",
+                                Toast.LENGTH_SHORT).show();
+                        tv1.setVisibility(View.INVISIBLE);
                     }
                 });
 

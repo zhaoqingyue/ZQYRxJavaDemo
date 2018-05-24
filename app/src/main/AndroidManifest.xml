@@ -122,6 +122,11 @@
             android:theme="@style/BaseTheme">
         </activity>
         <activity
+            android:name=".rxjava.operator.create.RepeatActivity"
+            android:theme="@style/BaseTheme">
+        </activity>
+
+        <activity
             android:name=".rxjava.operator.merge.MergeActivity"
             android:theme="@style/BaseTheme">
         </activity>
@@ -225,6 +230,7 @@
             android:name=".rxpermissions.RxPermissionsActivity"
             android:theme="@style/BaseTheme">
         </activity>
+
     </application>
 
 </manifest>

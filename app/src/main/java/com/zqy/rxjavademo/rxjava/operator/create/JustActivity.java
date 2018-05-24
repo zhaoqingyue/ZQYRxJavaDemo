@@ -2,14 +2,16 @@ package com.zqy.rxjavademo.rxjava.operator.create;
 
 import android.widget.TextView;
 
+import com.trello.rxlifecycle.ActivityEvent;
 import com.zqy.rxjavademo.R;
-import com.zqy.rxjavademo.base.BaseActivity;
+import com.zqy.rxjavademo.base.RxBaseActivity;
 
 import butterknife.BindView;
 import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
-public class JustActivity extends BaseActivity {
+public class JustActivity extends RxBaseActivity {
 
     @BindView(R.id.tv0)
     TextView tv0;
@@ -33,15 +35,17 @@ public class JustActivity extends BaseActivity {
          *
          * 使用just( )，将创建一个Observable并自动调用onNext( )发射数据
          */
-
-        String str1 = "1. 将创建一个Observable\n";
+        String str0 = "特点：";
+        String str1 = "1. 将创建一个Observable";
         String str2 = "2. 自动调用onNext( )发射数据";
-        Observable.just(str1, str2)
+        Observable.just(str0, str1, str2)
+                .compose(this.<String>bindUntilEvent(ActivityEvent.PAUSE))
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<String>() {
 
             @Override
             public void call(String s) {
-                tv0.setText(tv0.getText().toString() + s);
+                tv0.setText(tv0.getText().toString() + "\n" + s);
             }
         });
     }

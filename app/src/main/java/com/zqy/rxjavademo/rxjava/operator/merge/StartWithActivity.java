@@ -2,20 +2,17 @@ package com.zqy.rxjavademo.rxjava.operator.merge;
 
 import android.widget.TextView;
 
-import com.blankj.utilcode.util.LogUtils;
+import com.trello.rxlifecycle.ActivityEvent;
 import com.zqy.rxjavademo.R;
-import com.zqy.rxjavademo.base.BaseActivity;
+import com.zqy.rxjavademo.base.RxBaseActivity;
 
 import butterknife.BindView;
 import rx.Observable;
-import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
-public class StartWithActivity extends BaseActivity {
-    private Subscription subscription;
+public class StartWithActivity extends RxBaseActivity {
 
-    @BindView(R.id.tv0)
-    TextView tv0;
     @BindView(R.id.tv1)
     TextView tv1;
 
@@ -31,7 +28,6 @@ public class StartWithActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        tv0.setText("startWith： 在数据序列的开头增加一项数据");
         /**
          * startWith： 在数据序列的开头增加一项数据
          * startWith的内部也是调用了concat
@@ -47,11 +43,12 @@ public class StartWithActivity extends BaseActivity {
 
         Observable observable = Observable.just(str1, str2, str3, str4)
                 .startWith(str5, str6, str7);
-        subscription = observable.subscribe(new Action1<String>() {
+        observable.compose(this.<String>bindUntilEvent(ActivityEvent.PAUSE))
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<String>() {
 
             @Override
             public void call(String s) {
-                LogUtils.d("ZQY", s);
                 tv1.setText(tv1.getText().toString() + "\n" + s);
             }
         });
@@ -60,7 +57,5 @@ public class StartWithActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (subscription != null)
-            subscription.unsubscribe();
     }
 }

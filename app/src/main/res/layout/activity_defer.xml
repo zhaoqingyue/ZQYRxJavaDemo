@@ -14,13 +14,11 @@
         layout="@layout/layout_top"/>
 
     <TextView
-        android:id="@+id/tv0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:text=""
-        android:lineSpacingExtra="5dp"
-        android:textSize="20sp"/>
+        android:text="----只有当订阅者订阅才创建Observable；为每个订阅创建一个新的 Observable"
+        android:lineSpacingExtra="5dp"/>
 
     <TextView
         android:id="@+id/tv1"
@@ -28,8 +26,7 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:text=""
-        android:lineSpacingExtra="5dp"
-        android:textSize="20sp"/>
+        android:lineSpacingExtra="5dp"/>
 
     <ImageView
         android:layout_width="match_parent"

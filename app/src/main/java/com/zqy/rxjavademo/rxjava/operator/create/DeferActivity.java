@@ -2,9 +2,9 @@ package com.zqy.rxjavademo.rxjava.operator.create;
 
 import android.widget.TextView;
 
-import com.blankj.utilcode.util.LogUtils;
+import com.trello.rxlifecycle.ActivityEvent;
 import com.zqy.rxjavademo.R;
-import com.zqy.rxjavademo.base.BaseActivity;
+import com.zqy.rxjavademo.base.RxBaseActivity;
 
 import butterknife.BindView;
 import rx.Observable;
@@ -12,10 +12,8 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func0;
 
-public class DeferActivity extends BaseActivity {
+public class DeferActivity extends RxBaseActivity {
 
-    @BindView(R.id.tv0)
-    TextView tv0;
     @BindView(R.id.tv1)
     TextView tv1;
 
@@ -33,12 +31,11 @@ public class DeferActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        tv0.setText("defer：只有当订阅者订阅后才创建Observable");
         /**
          * defer：只有当订阅者订阅才创建Observable，为每个订阅创建一个新的Observable
          * 内部通过OnSubscribeDefer在订阅时调用Func0创建Observable
          */
-        str = "创建defer";
+        str = "我才刚刚创建defer";
         Observable<String> defer = Observable.defer(new Func0<Observable<String>>() {
 
             @Override
@@ -50,14 +47,14 @@ public class DeferActivity extends BaseActivity {
         /**
          * 只有执行subscribe才创建Observable
          */
-        str = "订阅defer" ;
-        defer.observeOn(AndroidSchedulers.mainThread())
+        str = "我是订阅后的defer" ;
+        defer.compose(this.<String>bindUntilEvent(ActivityEvent.PAUSE))
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<String>() {
 
                     @Override
                     public void call(String s) {
-                        LogUtils.d("ZQY", s);
-                        tv1.setText("str：" + s);
+                        tv1.setText("str的值：" + s);
                     }
         });
     }

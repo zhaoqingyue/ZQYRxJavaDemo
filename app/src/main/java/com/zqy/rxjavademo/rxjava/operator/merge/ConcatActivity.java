@@ -2,20 +2,17 @@ package com.zqy.rxjavademo.rxjava.operator.merge;
 
 import android.widget.TextView;
 
-import com.blankj.utilcode.util.LogUtils;
+import com.trello.rxlifecycle.ActivityEvent;
 import com.zqy.rxjavademo.R;
-import com.zqy.rxjavademo.base.BaseActivity;
+import com.zqy.rxjavademo.base.RxBaseActivity;
 
 import butterknife.BindView;
 import rx.Observable;
-import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
-public class ConcatActivity extends BaseActivity {
-    private Subscription subscription;
+public class ConcatActivity extends RxBaseActivity {
 
-    @BindView(R.id.tv0)
-    TextView tv0;
     @BindView(R.id.tv1)
     TextView tv1;
 
@@ -31,10 +28,9 @@ public class ConcatActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        tv0.setText("concat: 按顺序连接多个Observables");
         /**
-         * concat: 按顺序连接多个Observables。
-         * Observable.concat(a,b)等价于a.concatWith(b)。
+         * concat: 按顺序连接多个Observables
+         * Observable.concat(a,b)等价于a.concatWith(b)
          */
         String str1 = "observable1-1";
         String str2 = "observable1-2";
@@ -47,11 +43,12 @@ public class ConcatActivity extends BaseActivity {
         Observable<String> observable1 = Observable.just(str1, str2, str3, str4);
         Observable<String> observable2 = Observable.just(str5, str6, str7);
         Observable observable = Observable.concat(observable1, observable2);
-        subscription = observable.subscribe(new Action1<String>() {
+       observable.compose(this.<String>bindUntilEvent(ActivityEvent.PAUSE))
+               .observeOn(AndroidSchedulers.mainThread())
+               .subscribe(new Action1<String>() {
 
             @Override
             public void call(String s) {
-                LogUtils.d("ZQY", s);
                 tv1.setText(tv1.getText().toString() + "\n" + s);
             }
         });
@@ -60,7 +57,5 @@ public class ConcatActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (subscription != null)
-            subscription.unsubscribe();
     }
 }

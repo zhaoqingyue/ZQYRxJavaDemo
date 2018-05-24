@@ -1,14 +1,9 @@
 package com.zqy.rxjavademo.rxjava.operator.merge;
 
 import com.zqy.rxjavademo.R;
-import com.zqy.rxjavademo.base.BaseActivity;
+import com.zqy.rxjavademo.base.RxBaseActivity;
 
-public class CombineLatestActivity extends BaseActivity {
-
-//    @BindView(R.id.tv0)
-//    TextView tv0;
-//    @BindView(R.id.tv1)
-//    TextView tv1;
+public class CombineLatestActivity extends RxBaseActivity {
 
     @Override
     protected int getLayoutResID() {
@@ -28,6 +23,5 @@ public class CombineLatestActivity extends BaseActivity {
          * 类似于zip，但是，不同的是zip只有在每个Observable都发射了数据才工作，
          * 而combineLatest任何一个发射了数据都可以工作，每次与另一个Observable最近的数据压合。
          */
-
     }
 }
