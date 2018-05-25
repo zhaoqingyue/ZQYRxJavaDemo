@@ -32,15 +32,15 @@ compile 'io.reactivex:rxandroid:1.0.1'
 ![image](https://github.com/zhaoqingyue/ZQYRxJavaDemo/blob/master/img/1.jpg)
 
 基本对象：
-- Observable（被观察者）
-- Observer（观察者）
-- subscribe（订阅）
-- event（基本事件）
+- Observable ---- 被观察者
+- Observer ---- 观察者
+- Subscribe ---- 订阅
+- onEvent ---- 事件
 
 基本用法：
-- 创建被观察者(Observable)
-- 创建观察者Observer或Subscriber
-- 订阅事件subscribe
+1. 创建被观察者(Observable)
+2. 创建观察者Observer或Subscriber
+3. 订阅事件subscribe
 
 ### 1. 创建被观察者(Observable)
 ```
@@ -184,4 +184,57 @@ Observer<String> observer = new Observer<String>() {
  * observable就调用observer对象的onNext和onComplete方法
  */
 observable.subscribe(observer) ;
+```
+
+### 线程调度器Scheduler
+
+RxJava中可用的调度器种类:
+
+调度器类型 | 效果
+---|---
+Schedulers.computation() | 用于计算任务，如事件循环或回调处理，不要用IO操作（IO操作请使用Scheduler.io()）; 默认线程数等于处理器的数量
+Schedulers.from(executor) | 使用指定的Executor作为调度器
+Schedulers.immediate() | 在当前线程立即开始执行任务
+Schedulers.io() | 用于IO密集型任务，如异步阻塞IO操作；默认是一个CachedThreadScheduler，像一个有线程缓存的新线程调度器
+Schedulers.newThread() | 为每一个任务创建一个新的线程
+Schedulers.trampoline() | 当其它排队的任务完成后，在当前线程排队开始执行
+
+
+RxAndroid中添加了专用的AndroidSchedulers.mainThread()，它指定的操作将在 Android 主线程运行，也就是我们的UI线程。
+
+**使用SubScribeOn和ObserverOn操作符**
+
+- SubscribeOn(): 订阅事件发生的线程，事件产生的线程，只允许执行一次
+- ObserveOn：指定回调发生的线程，事件消费的线程，可以执行多次
+
+```
+.subscribeOn(Schedulers.io())
+.observeOn(AndroidSchedulers.mainThread())
+```
+
+**基本用法：**
+```
+Observable.just("One", "Two", "Three")
+    .subscribeOn(Schedulers.io()) // 指定 subscribe() 发生在 IO 线程,事件产生在Io线程
+    .observeOn(AndroidSchedulers.mainThread()) // 指定 Subscriber 的回调发生在主线程
+    .subscribe(new Action1<String>() {
+    
+        @Override
+        public void call(String s) {
+            Log.i("RxJavaTest",  s);
+        }
+    });
+```
+
+**多次切换线程**
+
+```
+Observable.just("One"，"Two ","Three") // 发生在IO 线程，由 subscribeOn() 指定，subscribeOn()只允许执行一次，你也可以指定多个，但是只有第一个起作用
+    .subscribeOn(Schedulers.io())
+    .observeOn(Schedulers.newThread())
+    .map() // 发生在新线程，由 observeOn() 指定
+    .observeOn(Schedulers.io())
+    .map() // 发生在IO 线程，由 observeOn() 指定
+    .observeOn(AndroidSchedulers.mainThread)
+    .subscribe(subscriber);  // 发生在UI主线程，由 observeOn() 指定
 ```
