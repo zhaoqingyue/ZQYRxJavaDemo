@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.jakewharton.rxbinding.view.RxView;
 import com.tbruyelle.rxpermissions.Permission;
 import com.tbruyelle.rxpermissions.RxPermissions;
@@ -59,12 +58,10 @@ public class RxPermissionsActivity extends BaseActivity {
                             @Override
                             public void call(Boolean aBoolean) {
                                 if (aBoolean) {
-                                    LogUtils.d("ZQY", "all permissions get success");
                                     Toast.makeText(getApplicationContext(),
                                             "all permissions get success",
                                             Toast.LENGTH_SHORT).show();
-                                }else {
-                                    LogUtils.d("ZQY", "must has one ore more permissions get failed");
+                                } else {
                                     Toast.makeText(getApplicationContext(),
                                             "must has one ore more permissions get failed",
                                             Toast.LENGTH_SHORT).show();
@@ -85,12 +82,10 @@ public class RxPermissionsActivity extends BaseActivity {
                             @Override
                             public void call(Permission permission) {
                                 if (permission.granted){
-                                    LogUtils.d("ZQY", permission.name + "this permission get success");
                                     Toast.makeText(getApplicationContext(),
                                             permission.name + "this permission get success",
                                             Toast.LENGTH_SHORT).show();
-                                }else{
-                                    LogUtils.d("ZQY", permission.name + "this permission get failed");
+                                } else {
                                     Toast.makeText(getApplicationContext(),
                                             permission.name + "this permission get failed",
                                             Toast.LENGTH_SHORT).show();
@@ -107,12 +102,10 @@ public class RxPermissionsActivity extends BaseActivity {
                     @Override
                     public void call(Boolean aBoolean) {
                         if (aBoolean) {
-                            LogUtils.d("ZQY", "all permissions get success");
                             Toast.makeText(getApplicationContext(),
                                     "all permissions get success",
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            LogUtils.d("ZQY", "must has one ore more permissions get failed");
                             Toast.makeText(getApplicationContext(),
                                     "must has one ore more permissions get failed",
                                     Toast.LENGTH_SHORT).show();
@@ -128,12 +121,10 @@ public class RxPermissionsActivity extends BaseActivity {
                     @Override
                     public void call(Permission permission) {
                         if (permission.granted){
-                            LogUtils.d("ZQY", permission.name + "this permission get success");
                             Toast.makeText(getApplicationContext(),
                                     permission.name + "this permission get success",
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            LogUtils.d("ZQY", permission.name + "this permission get failed");
                             Toast.makeText(getApplicationContext(),
                                     permission.name + "this permission get failed",
                                     Toast.LENGTH_SHORT).show();
