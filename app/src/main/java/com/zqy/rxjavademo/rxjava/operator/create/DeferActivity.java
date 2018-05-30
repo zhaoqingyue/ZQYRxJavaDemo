@@ -47,7 +47,7 @@ public class DeferActivity extends RxBaseActivity {
         /**
          * 只有执行subscribe才创建Observable
          */
-        str = "我是订阅后的defer" ;
+        str = "我是订阅后的defer";
         defer.compose(this.<String>bindUntilEvent(ActivityEvent.PAUSE))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<String>() {

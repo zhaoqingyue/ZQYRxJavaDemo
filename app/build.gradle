@@ -28,24 +28,24 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
 
-    //RecyclerView
+    // RecyclerView
     compile 'com.android.support:recyclerview-v7:25.3.1'
 
-    //沉浸式管理
+    // 沉浸式管理
     compile 'com.gyf.barlibrary:barlibrary:2.2.9'
 
     // 依赖注入
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
-    //Android 工具类库
+    // Android 工具类库
     compile 'com.blankj:utilcode:1.13.4'
 
     // RxAndroid
     compile 'io.reactivex:rxjava:1.0.14'
     compile 'io.reactivex:rxandroid:1.2.0'
 
-
+    // Rxjava1.0 与 RxJava2.0不能同时存在
 //    compile "io.reactivex.rxjava2:rxjava:2.0.2"
 //    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
 
